@@ -1,46 +1,59 @@
 #include <stdio.h>
+//Recursividade movimento Torre
+void moverTorres(int casas){
+    if (casas > 0) 
+    {
+        printf("Torre direita\n");
+        moverTorres(casas - 1);
+    }
+    
+}
+//Recursividade movimento Bispo
+void moverBispo(int casas){
+    if (casas > 0) 
+    {
+        printf("Bispo, Diagonal a direita \n");
+        moverTorres(casas - 1);
+    }
+    
+}
+//Recursividade movimento Rainha
+void moverRainha(int casas){
+    if (casas > 0) 
+    {
+        printf("Rainha a esquerda \n");
+        moverRainha(casas - 1);
+    }
+    
+}
 
 int main(){
-    int torre = 1; // declarei a variavel torre e dei o valor de 1 
-    int bispo = 1; // declarei a variavel bispo e dei valor 1
-    int rainha; // declarei a variavel rainha
-    int cavalo = 1; // flag para movimento em "L" e dei o valor 1
-    
+     
     printf("\nÉ a vez da Torre!\n");
 
-    while (torre <= 5) { // coloquei dentro função while para contar os passos da torre
+    moverTorres(5);
 
-            printf("Torre dando %dº passo para Direita!\n", torre);
-            torre ++;       
-    }  
     
     printf("\nÉ a vez do Bispo!\n");
-    // coloquei dentro função do - while para contar os passos do bispo
-    do{
-        printf("Bispo dando %dº passo para Diagonal, Direita!\n", bispo);
-        bispo ++; 
+    
+    moverTorres(5);
 
-    } while (bispo <= 5);
-    {
-        
-    }
+
 
     printf("\nÉ a vez da Rainha!\n");
 
-    for (rainha = 1; rainha <= 8; rainha ++) // coloquei dentro da função for para contar os passos da rainha
-{
-    printf("Rainha dando %dº passo para Esquerda!\n", rainha);
-}
-printf("\nÉ a vez do Cavalo!\n");
+    moverRainha(8);
 
-while (cavalo --)
-{
-    for (int i = 0; i < 2; i++) 
+
+
+
+    printf("\nÉ a vez do Cavalo!\n");
+// Loop complexo para contar o movimento em "L" do Cavalo
+    for (int i = 1, j = 0; i <= 3 && j <= 1; i++, j++)
     {
-        printf("Cavalo, Baixo\n"); // Imprime "Baixa" duas vezes
+        printf("Cavalo, cima- %d e direita %d \n", i, j);
+         
     }
-    printf("Cavalo, Esquerda\n"); //Imprime "Esquerda" uma vez 
-}
 
 
 
